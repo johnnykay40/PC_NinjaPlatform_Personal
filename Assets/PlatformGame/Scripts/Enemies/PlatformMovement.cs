@@ -17,9 +17,9 @@ public class PlatformMovement : MonoBehaviour
 
     private void Update()
     {
-        Vector3 v = startingPosition;
-        v.z += distanceToCover * Mathf.Sin(Time.time * platformSpeed);
-        transform.position = v;       
+        Vector3 newPositionPlatform = startingPosition;
+        newPositionPlatform.z += distanceToCover * Mathf.Sin(Time.time * platformSpeed);
+        transform.position = newPositionPlatform;       
         
     }
 }

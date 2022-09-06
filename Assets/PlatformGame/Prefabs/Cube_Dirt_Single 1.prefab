@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6112552536498348961}
   - component: {fileID: 8300364377630267243}
   - component: {fileID: 2133236508}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube_Dirt_Single 1
   m_TagString: Ground
   m_Icon: {fileID: 0}

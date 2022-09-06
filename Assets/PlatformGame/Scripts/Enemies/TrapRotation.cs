@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class TrapRotation : MonoBehaviour
 {
     [SerializeField] private float trapSpeed;

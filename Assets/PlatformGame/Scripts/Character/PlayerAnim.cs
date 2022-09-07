@@ -11,7 +11,6 @@ public class PlayerAnim : MonoBehaviour
     {
         playerAnim = GetComponent<Animator>();
     }
-
     private void OnEnable()
     {
         PlayerVerifyDirection.OnAnimRunning += AnimRunning;

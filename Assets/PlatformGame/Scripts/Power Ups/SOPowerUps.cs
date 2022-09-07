@@ -7,7 +7,7 @@ public class SOPowerUps : ScriptableObject
 {    
     public enum TypePowerUps
     {
-        shootStar, dash, swim, hang
+        none, shootStar, dash, swim, hang
     }
 
     public TypePowerUps typePowerUps;

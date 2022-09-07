@@ -4,7 +4,7 @@ public class PlayerPowerUps : MonoBehaviour
 {
     public enum TypePlayerPowerUps
     {
-        shootStar, dash, swim, hang
+        none, shootStar, dash, swim, hang
     }
 
     public TypePlayerPowerUps typePlayerPowerUps;

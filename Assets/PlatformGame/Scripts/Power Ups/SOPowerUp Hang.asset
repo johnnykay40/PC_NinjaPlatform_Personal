@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9588de7cd3c4ae343b7313be19837fd4, type: 3}
   m_Name: SOPowerUp Hang
   m_EditorClassIdentifier: 
-  typePowerUps: 3
+  typePowerUps: 4

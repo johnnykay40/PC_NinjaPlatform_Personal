@@ -14,7 +14,7 @@ public class PlayerAnim : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerMovement.OnAnimRunning += AnimRunning;
+        PlayerVerifyDirection.OnAnimRunning += AnimRunning;
         PlayerJump.OnAnimJump += AnimJump;
     }
 
@@ -23,7 +23,7 @@ public class PlayerAnim : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerMovement.OnAnimRunning -= AnimRunning;
+        PlayerVerifyDirection.OnAnimRunning -= AnimRunning;
         PlayerJump.OnAnimJump -= AnimJump;
     }
 }

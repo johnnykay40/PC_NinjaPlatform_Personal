@@ -2,12 +2,27 @@ using UnityEngine;
 
 public class PlayerRotation : MonoBehaviour 
 {
+    //public static PlayerRotation Instance;
+    
     [SerializeField] internal int newRotationPlayerForward;
     [SerializeField] internal int newRotationPlayerBack;
 
+    // With Singleton
+    //private void Awake()
+    //{
+    //    if (Instance == null)
+    //    {
+    //        Instance = this;
+    //    }
+    //    else
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
+
     private void OnEnable()
     {
-        PlayerMovement.OnRotationPlayer += RotationPlayer;
+        PlayerVerifyDirection.OnRotationPlayer += RotationPlayer;
         SwitchRotationPlayer.OnRotatePlayer += RotationPlayer;
     }
 
@@ -18,7 +33,7 @@ public class PlayerRotation : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerMovement.OnRotationPlayer -= RotationPlayer;
+        PlayerVerifyDirection.OnRotationPlayer -= RotationPlayer;
         SwitchRotationPlayer.OnRotatePlayer -= RotationPlayer;
     }
 }

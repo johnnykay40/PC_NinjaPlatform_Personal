@@ -14,8 +14,6 @@ public class PlayerVerifyDirection : MonoBehaviour
         playerMovement = FindObjectOfType<PlayerMovement>();
         playerRotation = FindObjectOfType<PlayerRotation>();
     }
-
-
     private void Update()
     {
         VerifyDirection();

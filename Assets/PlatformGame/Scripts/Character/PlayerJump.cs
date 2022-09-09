@@ -30,7 +30,6 @@ public class PlayerJump : MonoBehaviour
                 var newVelocity = new Vector3(0, forceImpulse, 0);
                 rigidbodyPlayer.velocity += newVelocity;
 
-
                 OnAnimJump?.Invoke();
             }           
         }

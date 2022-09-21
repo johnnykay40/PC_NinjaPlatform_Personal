@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : Health
 {
-    [SerializeField] private int healthPlayer;
-
-    private void HealthPlayer(int damage)
+    public override void HealthController(int damage) // INHERITANCE //POLYMORPHISM
     {
-        healthPlayer -= damage;
+        healthValue -= damage;
     }
 }

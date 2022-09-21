@@ -27,11 +27,13 @@ public class PlayerJump : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                PlayerManager.playerManager.statePlayer = PlayerManager.StatePlayer.jump;
+
                 var newVelocity = new Vector3(0, forceImpulse, 0);
                 rigidbodyPlayer.velocity += newVelocity;
 
                 OnAnimJump?.Invoke();
-            }           
+            }            
         }
     }
 }

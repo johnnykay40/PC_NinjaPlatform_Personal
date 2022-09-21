@@ -25,6 +25,7 @@ public class PlayerDash : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) && !isDashing)
             {
+                PlayerManager.playerManager.statePlayer = PlayerManager.StatePlayer.dash;
                 StartCoroutine(CheckDash());
                 isDashing = true;
 
@@ -46,9 +47,4 @@ public class PlayerDash : MonoBehaviour
         isDashing = false;
         trailRenderer.emitting = false;
     }
-
-
-
-
-
 }

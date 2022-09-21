@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class PlayerCheckGround : MonoBehaviour
 {
-    [SerializeField] internal bool isGround;
+    private bool _isGround;
+    public bool isGround //ENCAPSULATION
+    {
+        get { return _isGround; }
+        set { _isGround = value; }
+    }
+
 
     [SerializeField] private Transform rayCastGround;
     [SerializeField] private float radius;
@@ -12,7 +18,7 @@ public class PlayerCheckGround : MonoBehaviour
     
     private void FixedUpdate()
     {
-        CheckGround();
+        CheckGround(); 
     }
     private void CheckGround()
     {
@@ -33,16 +39,5 @@ public class PlayerCheckGround : MonoBehaviour
         Gizmos.DrawSphere(transform.position, radius);
 
     }
-
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.CompareTag("Ground"))
-    //    {
-    //        isGround = true;
-    //    }
-    //}
-    //private void OnTriggerExit(Collider other)
-    //{
-    //        isGround = false;
-    //}
+    
 }

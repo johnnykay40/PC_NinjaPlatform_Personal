@@ -3,21 +3,27 @@ using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
 {
+    private PlayerPowerUps playerPowerUps;
+
     [Header("General")]
-    [SerializeField] private Rigidbody rigidbodyPlayer;
+    [SerializeField] private TrailRenderer trailRenderer;
 
     [Header("Checker")]
     [SerializeField] private bool isDashing;
 
     [Header("Values")]
+    [Range(0, 5)]
     [SerializeField] private float dashingPowerToPlayer;
-    [SerializeField] private TrailRenderer trailRenderer;
+    [SerializeField] private Vector3 directionDash;
 
-    public Vector3 directionDash;
-
-    public PlayerPowerUps playerPowerUps;
-
+    private Rigidbody rigidbodyPlayer;
     private WaitForSeconds delayDashTime = new WaitForSeconds(1f);
+
+    private void Awake()
+    {
+        rigidbodyPlayer = GetComponent<Rigidbody>();
+        playerPowerUps = GetComponent<PlayerPowerUps>();
+    }
 
     private void FixedUpdate()
     {
@@ -27,12 +33,11 @@ public class PlayerDash : MonoBehaviour
             {
                 PlayerManager.playerManager.statePlayer = PlayerManager.StatePlayer.dash;
                 StartCoroutine(CheckDash());
+
                 isDashing = true;
 
                 if (isDashing)
-                {
                     StartCoroutine(CheckDash());
-                }
             } 
         }
     }
@@ -43,6 +48,7 @@ public class PlayerDash : MonoBehaviour
         rigidbodyPlayer.AddForce(forceDirection, ForceMode.Impulse);
 
         trailRenderer.emitting = true;
+        
         yield return delayDashTime;
         isDashing = false;
         trailRenderer.emitting = false;

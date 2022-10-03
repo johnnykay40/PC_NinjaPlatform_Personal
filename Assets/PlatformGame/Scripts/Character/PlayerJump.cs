@@ -5,22 +5,22 @@ public class PlayerJump : MonoBehaviour
 {
     internal static event Action OnAnimJump;
 
-    [Header("Parameter's")]
+    private PlayerCheckGround playerCheckGround;
+
+    [Header("Values")]
+    [Range(0, 10)]
     [SerializeField] private float forceImpulse;
 
-    [SerializeField] private Rigidbody rigidbodyPlayer;
-
-    private PlayerCheckGround playerCheckGround;
+    private Rigidbody rigidbodyPlayer;
 
     private void Awake()
     {
         playerCheckGround = FindObjectOfType<PlayerCheckGround>();
-    }
-    private void Update()
-    {
-        OnJump();
+        rigidbodyPlayer = FindObjectOfType<Rigidbody>();
     }
 
+    private void Update() => OnJump();
+ 
     private void OnJump()
     {
         if(playerCheckGround.isGround)

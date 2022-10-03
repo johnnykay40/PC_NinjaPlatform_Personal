@@ -1,6 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+[RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(PlayerJump))]
+[RequireComponent(typeof(PlayerRotation))]
+[RequireComponent(typeof(PlayerAnim))]
+[RequireComponent(typeof(PlayerVerifyDirection))]
+[RequireComponent(typeof(PlayerPowerUps))]
+[RequireComponent(typeof(PlayerDash))]
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(CapsuleCollider))]
 
 public class PlayerManager : MonoBehaviour
 {
@@ -8,8 +16,6 @@ public class PlayerManager : MonoBehaviour
     public enum StatePlayer { idle, swim, running, shooting, hang, dash, jump}
     public StatePlayer statePlayer;
 
-    private void Awake()
-    {
-        playerManager = this;
-    }
+    private void Awake() => playerManager = this;
+
 }

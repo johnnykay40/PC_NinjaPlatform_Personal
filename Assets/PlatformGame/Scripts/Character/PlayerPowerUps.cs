@@ -6,7 +6,6 @@ public class PlayerPowerUps : MonoBehaviour
     {
         none, shootStar, dash, swim, hang
     }
-
     public TypePlayerPowerUps typePlayerPowerUps;
 
     private void OnEnable()
@@ -14,10 +13,7 @@ public class PlayerPowerUps : MonoBehaviour
         TypeOfPowerUps.OnInvokePowerUps += PowerUpsEquals;
     }
 
-    private void PowerUpsEquals(SOPowerUps sOPowerUps) 
-    {
-        typePlayerPowerUps = (TypePlayerPowerUps)sOPowerUps.typePowerUps;
-    }
+    private void PowerUpsEquals(SOPowerUps sOPowerUps) => typePlayerPowerUps = (TypePlayerPowerUps)sOPowerUps.typePowerUps;
 
     private void OnDisable()
     {

@@ -1,23 +1,19 @@
 using System;
-using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {    
-    
-    [Header("Parameter's")]
     [Range(0,50)]
     [SerializeField] private float playerSpeed;
-    [SerializeField] private Rigidbody rigidbodyPlayer;
-    
-    
-    internal Vector3 displacement;
-    private float horizontalMovement;         
 
-    private void Update()
-    {        
-        PlayerMove();        
-    }
+    private Rigidbody rigidbodyPlayer;
+    internal Vector3 displacement;
+    private float horizontalMovement;
+
+    //Lambda
+    private void Awake() => rigidbodyPlayer = GetComponent<Rigidbody>();
+
+    private void Update() => PlayerMove();        
 
     private void PlayerMove()
     {
@@ -25,9 +21,9 @@ public class PlayerMovement : MonoBehaviour
 
         displacement.Set(0f, 0f, horizontalMovement);
 
-        displacement = displacement.normalized * playerSpeed * Time.deltaTime;
+        //First Time deltatime
+        displacement = displacement.normalized * Time.deltaTime * playerSpeed;
 
         rigidbodyPlayer.MovePosition(transform.position + displacement);
     }
-
 }

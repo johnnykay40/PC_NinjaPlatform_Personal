@@ -2,21 +2,43 @@ using UnityEngine;
 
 public class PlayerPowerUps : MonoBehaviour
 {
-    public enum TypePlayerPowerUps
-    {
-        none, shootStar, dash, swim, hang
-    }
-    public TypePlayerPowerUps typePlayerPowerUps;
+    public SOPowerUps sOPowerUps;
 
-    private void OnEnable()
+    private PlayerDash playerDash;
+
+    private void Awake()
     {
-        TypeOfPowerUps.OnInvokePowerUps += PowerUpsEquals;
+        playerDash = FindObjectOfType<PlayerDash>();
     }
 
-    private void PowerUpsEquals(SOPowerUps sOPowerUps) => typePlayerPowerUps = (TypePlayerPowerUps)sOPowerUps.typePowerUps;
-
-    private void OnDisable()
+    private void Update()
     {
-        TypeOfPowerUps.OnInvokePowerUps -= PowerUpsEquals;
+        PowerUp();
+    }
+
+    private void PowerUp()
+    {
+        if (sOPowerUps != null)
+        {
+            if(sOPowerUps.isPowerUp)
+            {
+                if (Input.GetMouseButton(0))
+                {
+                    switch (sOPowerUps.typePowerUp)
+                    {
+                        case SOPowerUps.TypePowerUp.dash:
+                            playerDash.CallDash();
+                            break;
+                        case SOPowerUps.TypePowerUp.shootStar:
+                            Debug.Log("Shoot Star");
+                            break;
+                        case SOPowerUps.TypePowerUp.swim:
+                            break;
+                        case SOPowerUps.TypePowerUp.hang:
+                            break;
+                    }
+                }
+            }
+        }
     }
 }

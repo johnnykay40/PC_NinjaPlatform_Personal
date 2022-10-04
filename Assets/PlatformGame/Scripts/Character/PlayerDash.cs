@@ -4,7 +4,6 @@ using UnityEngine;
 public class PlayerDash : MonoBehaviour
 {
     private PlayerPowerUps playerPowerUps;
-
     private TrailRenderer trailRenderer;
 
     [Header("Checker")]
@@ -25,22 +24,14 @@ public class PlayerDash : MonoBehaviour
         playerPowerUps = GetComponent<PlayerPowerUps>();
     }
 
-    private void FixedUpdate()
+    internal void CallDash()
     {
-        if (playerPowerUps.typePlayerPowerUps == PlayerPowerUps.TypePlayerPowerUps.dash)
-        {
-            if (Input.GetMouseButtonDown(0) && !isDashing)
-            {
-                PlayerManager.playerManager.statePlayer = PlayerManager.StatePlayer.dash;
-                StartCoroutine(CheckDash());
+        isDashing = true;
 
-                isDashing = true;
-
-                if (isDashing)
-                    StartCoroutine(CheckDash());
-            } 
-        }
+        if (isDashing)
+            StartCoroutine(CheckDash());
     }
+
 
     private IEnumerator CheckDash()
     {
@@ -48,7 +39,7 @@ public class PlayerDash : MonoBehaviour
         rigidbodyPlayer.AddForce(forceDirection, ForceMode.Impulse);
 
         trailRenderer.emitting = true;
-        
+
         yield return delayDashTime;
         isDashing = false;
         trailRenderer.emitting = false;

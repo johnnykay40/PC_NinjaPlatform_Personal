@@ -7,10 +7,6 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerVerifyDirection))]
 [RequireComponent(typeof(PlayerPowerUps))]
 [RequireComponent(typeof(PlayerDash))]
-[RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(CapsuleCollider))]
-[RequireComponent(typeof(TrailRenderer))]
-[RequireComponent(typeof(Animator))]
 
 public class PlayerManager : MonoBehaviour
 {

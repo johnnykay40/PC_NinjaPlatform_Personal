@@ -16,7 +16,7 @@ public class PlayerJump : MonoBehaviour
     private void Awake()
     {
         playerCheckGround = FindObjectOfType<PlayerCheckGround>();
-        rigidbodyPlayer = FindObjectOfType<Rigidbody>();
+        rigidbodyPlayer = GetComponent<Rigidbody>();
     }
 
     private void Update() => OnJump();

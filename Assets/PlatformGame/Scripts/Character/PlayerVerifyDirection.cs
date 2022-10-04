@@ -29,6 +29,11 @@ public class PlayerVerifyDirection : MonoBehaviour
                 OnAnimSwimming?.Invoke(false);
         }
 
+        if(playerMovement.displacement.z != 0f)
+        {
+            PlayerManager.playerManager.statePlayer = PlayerManager.StatePlayer.running;
+        }
+
         if (playerMovement.displacement.z >= 0.01f)
         {
             transform.Translate(playerMovement.displacement);

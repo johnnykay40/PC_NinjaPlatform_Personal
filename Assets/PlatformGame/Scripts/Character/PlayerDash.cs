@@ -5,8 +5,7 @@ public class PlayerDash : MonoBehaviour
 {
     private PlayerPowerUps playerPowerUps;
 
-    [Header("General")]
-    [SerializeField] private TrailRenderer trailRenderer;
+    private TrailRenderer trailRenderer;
 
     [Header("Checker")]
     [SerializeField] private bool isDashing;
@@ -21,6 +20,7 @@ public class PlayerDash : MonoBehaviour
 
     private void Awake()
     {
+        trailRenderer = GetComponent<TrailRenderer>();
         rigidbodyPlayer = GetComponent<Rigidbody>();
         playerPowerUps = GetComponent<PlayerPowerUps>();
     }
